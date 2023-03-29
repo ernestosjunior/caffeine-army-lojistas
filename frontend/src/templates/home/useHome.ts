@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
+import { toast } from "react-hot-toast";
+
 import { useAuth } from "@/contexts/auth";
 import { Store } from "@/interfaces/store";
 import { getAPIClient } from "@/services/api";
+import { sanitizeCnpj } from "@/utils/sanitizeCnpj";
 
 export const useHome = () => {
   const { signOut } = useAuth();
@@ -10,17 +13,23 @@ export const useHome = () => {
   const [store, setStore] = useState<Store>({} as Store);
   const [openOwner, setOpenOwner] = useState(false);
   const [openStoreData, setOpenStoreData] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCnpj(e.target.value);
   };
 
   const fetchCnpj = async () => {
-    if (store.cnpj === cnpj) return null;
-    const res = await getAPIClient().get(
-      `/cnpj/${cnpj.replaceAll(".", "").replace("/", "").replace("-", "")}`
-    );
-    setStore(res.data);
+    try {
+      setLoading(true);
+      if (store.cnpj === cnpj) return null;
+      const res = await getAPIClient().get(`/cnpj/${sanitizeCnpj(cnpj)}`);
+      return setStore(res.data);
+    } catch (error) {
+      return toast.error("Tente novamente");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return {
@@ -33,5 +42,6 @@ export const useHome = () => {
     setOpenStoreData,
     signOut,
     fetchCnpj,
+    loading,
   };
 };

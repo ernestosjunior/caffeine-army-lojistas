@@ -18,6 +18,14 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
 
+  .info {
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.96px;
+    margin: 40px 0 18px 0;
+  }
+
   .additionalInformation {
     background: ${defaultTheme.colors.background};
     padding: 23px 16px;
@@ -30,7 +38,7 @@ export const Container = styled.section`
 
     @media (min-width: 951px) {
       padding: unset;
-      margin-bottom: 70px;
+      margin-bottom: 40px;
 
       .text {
         background: ${defaultTheme.colors.white};
@@ -48,38 +56,24 @@ export const NameCompany = styled.div`
   gap: 16px;
   padding: 24px 18px 18px 18px;
 
-  .titles {
-    display: flex;
-    flex-direction: column;
-    gap: 39px;
+  .name {
+    letter-spacing: 0.6px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 8px;
 
-    .name {
-      letter-spacing: 0.6px;
-      font-size: 20px;
+    > span {
       text-transform: uppercase;
-      font-weight: bold;
-      margin-top: 8px;
+      color: ${defaultTheme.colors.mediumGray};
 
-      > span {
-        text-transform: uppercase;
-        color: ${defaultTheme.colors.mediumGray};
-
-        @media (max-width: 950px) {
-          display: none;
-        }
+      @media (max-width: 950px) {
+        display: none;
       }
     }
+  }
 
-    .info {
-      text-transform: uppercase;
-      font-size: 16px;
-      text-align: center;
-      letter-spacing: 0.96px;
-      margin-top: 60px;
-    }
-
-    @media (min-width: 481px) {
-      width: 100%;
-    }
+  @media (min-width: 481px) {
+    width: 100%;
   }
 `;

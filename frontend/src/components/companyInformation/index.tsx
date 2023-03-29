@@ -20,14 +20,12 @@ export const CompanyInfomation: React.FC<CompanyInfomationProps> = ({
       <S.Icon>
         <Store fill={defaultTheme.colors.purple} />
       </S.Icon>
-      <div className="titles">
-        <h1 className="name">
-          {fantasy}
-          <span> - {name} </span>
-        </h1>
-        <h2 className="info">INFORMAÇÕES ADICIONAIS</h2>
-      </div>
+      <h1 className="name">
+        {fantasy}
+        <span> - {name} </span>
+      </h1>
     </S.NameCompany>
+    <h2 className="info">INFORMAÇÕES ADICIONAIS</h2>
     <div className="additionalInformation">
       <p className="text">{additional_information}</p>
     </div>

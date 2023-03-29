@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 
+import PuffLoader from "react-spinners/PuffLoader";
+
 import * as S from "./styles";
 import { useHome } from "./useHome";
 import { Header, Search, CompanyInfomation, Accordion } from "@/components";
+import { defaultTheme } from "@/styles/themes";
 
 export const HomeTemplate: React.FC = () => {
   const {
@@ -15,6 +18,7 @@ export const HomeTemplate: React.FC = () => {
     setOpenStoreData,
     signOut,
     fetchCnpj,
+    loading,
   } = useHome();
   const {
     nome,
@@ -60,7 +64,13 @@ export const HomeTemplate: React.FC = () => {
       <Header signOut={signOut} />
       <div className="homeBody">
         <Search value={cnpj} onChange={handleChange} onClick={fetchCnpj} />
-        {!!Object.keys(store).length && (
+        <PuffLoader
+          color={defaultTheme.colors.primary}
+          cssOverride={{ margin: "0 auto", marginTop: "70px" }}
+          size={100}
+          loading={loading}
+        />
+        {!loading && !!Object.keys(store).length && (
           <>
             <CompanyInfomation
               name={nome}

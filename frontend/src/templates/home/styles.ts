@@ -22,7 +22,7 @@ export const Container = styled.div`
 
       h2 {
         font-size: 16px;
-        margin-top: 20px;
+        margin-top: 40px;
         margin-bottom: 18px;
         text-align: center;
       }
