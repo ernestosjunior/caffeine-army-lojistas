@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { useAuth } from "@/contexts/auth";
 import { Store } from "@/interfaces/store";
 import { getAPIClient } from "@/services/api";
-import { sanitizeCnpj } from "@/utils/sanitizeCnpj";
+import { sanitizeCnpj } from "@/utils/sanitize";
 
 export const useHome = () => {
   const { signOut } = useAuth();

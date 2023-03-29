@@ -8,6 +8,7 @@ export interface InputProps {
   value: string;
   type?: string;
   placeholder?: string;
+  maxLength?: number;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -15,12 +16,19 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   value,
   type = "text",
+  maxLength,
   ...props
 }) => {
   return (
     <S.Container>
       <label className="label">{label}</label>
-      <input type={type} onChange={onChange} value={value} {...props} />
+      <input
+        type={type}
+        onChange={onChange}
+        value={value}
+        maxLength={maxLength}
+        {...props}
+      />
     </S.Container>
   );
 };

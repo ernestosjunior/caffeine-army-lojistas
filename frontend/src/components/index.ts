@@ -5,3 +5,4 @@ export * from "./header";
 export * from "./search";
 export * from "./companyInformation";
 export * from "./accordion";
+export * from "./loader";
