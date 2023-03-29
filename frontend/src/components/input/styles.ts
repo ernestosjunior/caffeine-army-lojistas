@@ -20,6 +20,7 @@ export const Container = styled.div`
     border-radius: 4px;
     outline: none;
     padding-left: 16px;
+    touch-action: none;
     :focus {
       border-color: #271718;
     }
