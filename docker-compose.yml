@@ -1,0 +1,59 @@
+version: "3.5"
+
+services:
+  database:
+    image: postgres:11.6-alpine
+    container_name: ${POSTGRES_HOST}
+    restart: on-failure
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file: .env
+
+  backend:
+    build: ./backend
+    restart: always
+    container_name: backend
+    links:
+      - database:${POSTGRES_HOST}
+    depends_on:
+      - database
+    ports:
+      - "${BACKEND_PORT}:3333"
+    environment:
+      DATABASE_URL: ${BACKEND_DATABASE_URL}
+      PORT: ${BACKEND_PORT}
+      JWT_SECRET: ${BACKEND_JWT_SECRET}
+      RECEITA_WS_URL: ${BACKEND_RECEITA_WS_URL}
+    env_file: .env
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${FRONTEND_API_URL}
+    restart: always
+    container_name: frontend
+    links:
+      - backend
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT}:3000"
+    env_file: .env
+
+  nginx:
+    container_name: nginx
+    depends_on:
+      - backend
+      - frontend
+    restart: always
+    build: ./nginx
+    ports:
+      - 80:80
+
+volumes:
+  backend-node-modules:
+  frontend-node-modules:
+  database:
