@@ -39,7 +39,7 @@ Execute the command to up containers:
 $ docker-compose -f docker-compose.yml up -d --bu
 ```
 
-###🚀 It's ready!
+### 🚀 It's ready!
 
 **Nginx is used in application**
 
