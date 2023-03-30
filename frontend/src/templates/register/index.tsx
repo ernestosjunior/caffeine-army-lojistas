@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import * as S from "./styles";
+import * as S from "../login/styles";
 import { useRegister } from "./useRegister";
 import logo from "@/assets/logo.svg";
 import { Input, Button, CompanyInfo, Loader } from "@/components";

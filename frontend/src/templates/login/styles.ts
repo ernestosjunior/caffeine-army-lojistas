@@ -57,6 +57,7 @@ export const Container = styled.section`
     .left {
       width: 100%;
       height: 192px;
+      min-height: 192px;
     }
     .right {
       width: 100%;
