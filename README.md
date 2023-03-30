@@ -51,6 +51,6 @@ Example:
 ```
 http://localhost/ #Access to frontend
 
-http://localhost/api #Access to api
+http://localhost/api/ #Access to api
 
 ```
