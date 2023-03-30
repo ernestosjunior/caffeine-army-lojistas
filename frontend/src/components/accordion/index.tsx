@@ -19,7 +19,8 @@ export const Accordion: React.FC<AccordionProps> = ({
   return (
     <S.Container>
       <S.Button
-        rotate={open}
+        id="openButton"
+        rotate={open || undefined}
         onClick={() => {
           setOpen(!open);
         }}
