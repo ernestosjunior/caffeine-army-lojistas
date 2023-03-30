@@ -8,7 +8,7 @@ export const Container = styled.section`
 
   .left {
     width: 50%;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("https://qgrrxmdhamxfaoxaxaph.supabase.co/storage/v1/object/public/caffeine/desk_login_background@2x.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,7 +25,7 @@ export const Container = styled.section`
     }
 
     .company {
-      padding-top: 90px;
+      padding-top: 70px;
       max-width: 408px;
     }
     .logo {
@@ -34,7 +34,7 @@ export const Container = styled.section`
     .title {
       text-align: center;
       color: ${defaultTheme.colors.gray};
-      margin-top: 90px;
+      margin-top: 70px;
     }
     .form {
       display: flex;
@@ -48,6 +48,7 @@ export const Container = styled.section`
     .link {
       color: ${defaultTheme.colors.primary};
       font-weight: 600;
+      margin: 24px 0;
     }
   }
 
