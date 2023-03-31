@@ -4,7 +4,7 @@
 
 _Make sure you have docker installed._
 
-Create the file **.env** on project root and include the variables in **.env.example**.
+Create the **.env** file on project root and include the variables in **.env.example**.
 
 **ALL IS MANDATORY**.
 
