@@ -36,7 +36,7 @@ NGINX_PORT=80
 Execute the command to up containers:
 
 ```bash
-$ docker-compose -f docker-compose.yml up -d --bu
+$ docker-compose -f docker-compose.yml up -d
 ```
 
 ### 🚀 It's ready!
