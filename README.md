@@ -44,7 +44,8 @@ $ docker-compose -f docker-compose.yml up -d
 **Nginx is used in application**
 
 Use / to access frontend
-Use /api to access backend
+
+Use /api/ to access backend
 
 Example:
 
